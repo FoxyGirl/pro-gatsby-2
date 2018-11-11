@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
+import gatsbyLogo from '../images/gatsby-icon.png'
+
 const Header = ({ siteTitle }) => (
   <div
     style={{
@@ -23,6 +25,7 @@ const Header = ({ siteTitle }) => (
             textDecoration: 'none',
           }}
         >
+          <img style={{ width: '80px', marginBottom: '-20px', marginLeft: '20px' }} src={gatsbyLogo} alt="Gatsby Logo" />
           {siteTitle}
         </Link>
       </h1>
