@@ -6,7 +6,8 @@ const About = () => (
         <div>
             <h1>About Us!</h1>
             <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque quibusdam sunt reiciendis omnis libero, saepe quasi explicabo totam dicta odit.
+                Lorem  gdgdh ipsum dolor sit amet consectetur, adipisicing elit. Atque quibusdam sunt reiciendis
+                omnis libero, saepe quasi explicabo totam dicta odit.
             </p>
         </div>
     </Layout>
