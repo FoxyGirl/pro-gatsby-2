@@ -1,9 +1,17 @@
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Default Starter',
+    description: 'New super blog!',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: 'posts',
+        path: `${__dirname}/src/posts`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
