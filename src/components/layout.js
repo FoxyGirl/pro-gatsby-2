@@ -18,6 +18,18 @@ const Layout = ({ children }) => (
           port
           host
         }
+        allMarkdownRemark {
+          edges {
+            node {
+              excerpt(pruneLength: 10)
+              html
+              frontmatter {
+                title
+                date(formatString: "MMMM DD, YYYY")
+              }
+            }
+          }
+        }
       }
     `}
     render={data => (
@@ -40,6 +52,17 @@ const Layout = ({ children }) => (
             paddingTop: 0,
           }}
         >
+          <div
+            dangerouslySetInnerHTML={{
+              __html: data.allMarkdownRemark.edges[0].node.html,
+            }}
+          />
+          <div
+            dangerouslySetInnerHTML={{
+              __html: data.allMarkdownRemark.edges[0].node.frontmatter.date,
+            }}
+          />
+          {console.log(data.allMarkdownRemark.edges[0].node.html)}
           {`${data.site.host} : ${data.site.port}`}
           {children}
         </div>
