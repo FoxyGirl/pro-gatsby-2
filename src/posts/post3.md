@@ -1,7 +1,7 @@
 ---
 slug: '/third-post'
 title: 'Our Third Post'
-date: '2018-11-19'
+date: '2018-11-30'
 ---
 
 # Sup!

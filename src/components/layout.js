@@ -53,7 +53,7 @@ const Layout = ({ children }) => (
             paddingTop: 0,
           }}
         >
-          {console.log(data.allMarkdownRemark.edges[0].node.html)}
+          {/*console.log(data.allMarkdownRemark.edges[0].node.html)*/}
           {`${data.site.host} : ${data.site.port}`}
           {children}
           <Archive />
