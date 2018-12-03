@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
+import Archive from './Archive'
 import './layout.css'
 
 const Layout = ({ children }) => (
@@ -52,19 +53,10 @@ const Layout = ({ children }) => (
             paddingTop: 0,
           }}
         >
-          <div
-            dangerouslySetInnerHTML={{
-              __html: data.allMarkdownRemark.edges[0].node.html,
-            }}
-          />
-          <div
-            dangerouslySetInnerHTML={{
-              __html: data.allMarkdownRemark.edges[0].node.frontmatter.date,
-            }}
-          />
           {console.log(data.allMarkdownRemark.edges[0].node.html)}
           {`${data.site.host} : ${data.site.port}`}
           {children}
+          <Archive />
         </div>
       </>
     )}
