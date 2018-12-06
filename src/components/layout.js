@@ -54,7 +54,7 @@ const Layout = ({ children }) => (
           }}
         >
           {/*console.log(data.allMarkdownRemark.edges[0].node.html)*/}
-          {`${data.site.host} : ${data.site.port}`}
+          {/*`${data.site.host} : ${data.site.port}`*/}
           {children}
           <Archive />
         </div>

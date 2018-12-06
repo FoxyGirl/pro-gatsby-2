@@ -10,11 +10,15 @@ import { graphql } from 'gatsby'
 
 class PostLayout extends Component {
   render() {
-    const data = this.props
-    console.log('data', data)
+    // const data = this.props
+    // console.log('data', data)
+    const {
+      data: { markdownRemark },
+    } = this.props
     return (
       <Layout>
-        <h1>Post Layout</h1>
+        <h1>{markdownRemark.frontmatter.title}</h1>
+        <div>{markdownRemark.frontmatter.date}</div>
       </Layout>
     )
   }
@@ -23,12 +27,12 @@ class PostLayout extends Component {
 export default PostLayout
 
 export const query = graphql`
-  query PostLayout {
-    markdownRemark(frontmatter: { slug: { eq: "/third-post" } }) {
+  query PostLayout($slug: String!) {
+    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       frontmatter {
         title
-        date
+        date(formatString: "MMMM DD, YYYY")
         slug
       }
     }

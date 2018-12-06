@@ -27,7 +27,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
       createPage({
         path: `/posts${slug}`,
         component: path.resolve('./src/components/PostLayout.js'),
-        context: slug,
+        context: { slug },
       })
     })
   })
