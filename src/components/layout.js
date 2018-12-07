@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import styled from 'styled-components'
 import Header from './header'
 import Archive from './Archive'
@@ -26,6 +27,13 @@ const Layout = ({ children }) => (
           }
           port
           host
+        }
+        file(relativePath: { regex: "/unsp/" }) {
+          childImageSharp {
+            fluid(maxWidth: 1000) {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
         allMarkdownRemark {
           edges {
@@ -53,6 +61,7 @@ const Layout = ({ children }) => (
           <html lang="en" />
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
+        <Img fluid={data.file.childImageSharp.fluid} />
         <StyledMain>
           <div>{children}</div>
           <Archive />
