@@ -30,6 +30,11 @@ const Listing = () => (
             <p>{excerpt}</p>
             <Link to={`/posts${slug}`}>Read More</Link>
           </article>
+          // <article key={slug}>
+          //   <h1>{title}</h1>
+          //   <p>{excerpt}</p>
+          //   <Link to={`/posts${slug}`}>Read More</Link>
+          // </article>
         ))}
       </div>
     )}

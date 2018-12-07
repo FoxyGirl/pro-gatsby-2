@@ -10,8 +10,6 @@ import { graphql } from 'gatsby'
 
 class PostLayout extends Component {
   render() {
-    // const data = this.props
-    // console.log('data', data)
     const {
       data: { markdownRemark },
     } = this.props
@@ -19,6 +17,7 @@ class PostLayout extends Component {
       <Layout>
         <h1>{markdownRemark.frontmatter.title}</h1>
         <div>{markdownRemark.frontmatter.date}</div>
+        <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
       </Layout>
     )
   }

@@ -1,36 +1,45 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Link } from 'gatsby'
-
 import gatsbyLogo from '../images/gatsby-icon.png'
 
+const Root = styled.div`
+  background: #524763;
+  margin-bottom: 1.45rem;
+`
+
+const Container = styled.div`
+  margin: 0 auto;
+  maxwidth: 960px;
+  padding: 1rem;
+  color: white;
+
+  img {
+    width: 80px;
+    margin-bottom: 0;
+    margin-left: 20px;
+  }
+`
+
+const StyledLink = styled(Link)`
+  color: white;
+  textdecoration: none;
+`
+const StyledH1 = styled.h1`
+  color: white;
+`
+
 const Header = ({ siteTitle }) => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          <img style={{ width: '80px', marginBottom: '-20px', marginLeft: '20px' }} src={gatsbyLogo} alt="Gatsby Logo" />
+  <Root>
+    <Container>
+      <StyledH1>
+        <StyledLink to="/">
+          <img src={gatsbyLogo} alt="Gatsby Logo" />
           {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </div>
+        </StyledLink>
+      </StyledH1>
+    </Container>
+  </Root>
 )
 
 export default Header
