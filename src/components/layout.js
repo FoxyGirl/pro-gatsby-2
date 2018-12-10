@@ -30,8 +30,6 @@ const Layout = ({ children, location }) => (
             title
             description
           }
-          port
-          host
         }
         file(relativePath: { regex: "/unsp/" }) {
           childImageSharp {
@@ -88,6 +86,11 @@ const Layout = ({ children, location }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+}
+
+// const isBrowser() => typeof window !== 'undefined'
+Layout.defaultProps = {
+  location: {},
 }
 
 export default Layout
