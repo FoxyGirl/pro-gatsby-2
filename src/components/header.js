@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import gatsbyLogo from '../images/gatsby-icon.png'
+import someLogo from '../images/phoenix-seeklogo_2.svg'
 
 const Root = styled.div`
   background: #524763;
-  margin-bottom: 1.45rem;
+  margin-bottom: 0;
 `
 
 const Container = styled.div`
@@ -16,14 +16,13 @@ const Container = styled.div`
 
   img {
     width: 80px;
-    margin-bottom: 0;
-    margin-left: 20px;
+    margin: 20px 20px 0;
   }
 `
 
 const StyledLink = styled(Link)`
   color: white;
-  textdecoration: none;
+  text-decoration: none;
 `
 const StyledH1 = styled.h1`
   color: white;
@@ -34,7 +33,7 @@ const Header = ({ siteTitle }) => (
     <Container>
       <StyledH1>
         <StyledLink to="/">
-          <img src={gatsbyLogo} alt="Gatsby Logo" />
+          <img src={someLogo} alt="Some Logo" />
           {siteTitle}
         </StyledLink>
       </StyledH1>
