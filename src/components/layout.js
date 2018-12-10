@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import { Spring } from 'react-spring'
 import Header from './header'
 import Archive from './Archive'
 import './layout.css'
@@ -14,9 +15,13 @@ const StyledMain = styled.main`
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-gap: 40px;
+  padding-top: 40px;
 `
+const from = { height: 140 }
 
-const Layout = ({ children }) => (
+const to = { height: 300 }
+
+const Layout = ({ children, location }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -31,7 +36,7 @@ const Layout = ({ children }) => (
         file(relativePath: { regex: "/unsp/" }) {
           childImageSharp {
             fluid(maxWidth: 1000) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_tracedSVG
             }
           }
         }
@@ -61,7 +66,17 @@ const Layout = ({ children }) => (
           <html lang="en" />
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <Img fluid={data.file.childImageSharp.fluid} />
+        {/* {location.pathname === '/' && <Img fluid={data.file.childImageSharp.fluid} />} */}
+        <Spring
+          from={location.pathname === '/' ? from : to}
+          to={location.pathname === '/' ? to : from}
+        >
+          {styles => (
+            <div style={{ ...styles, overflow: 'hidden' }}>
+              <Img fluid={data.file.childImageSharp.fluid} />
+            </div>
+          )}
+        </Spring>
         <StyledMain>
           <div>{children}</div>
           <Archive />
